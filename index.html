@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="animate.css">
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.plyr.io/3.2.4/plyr.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdn.plyr.io/3.2.4/plyr.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
+
+<body>
+
+	<div class="start">
+		<div class="logo">
+			<img src="dubit.jpg" class="im animated fadeInUp de1">
+		</div>
+
+		<div class="buts">
+			<div class="but bu animated fadeInUp de3">Login</div>
+			<div class="but2 bu animated fadeInUp de4">Sign Up</div>
+		</div>
+	</div>
+	<div class="loginpage">
+		<div class="mc">
+			<div class="main">
+				<div class="level">
+					Login
+					<div class="close">
+						<i class="fa fa-times" aria-hidden="true"></i>
+					</div>
+				</div>
+
+				<div class="mainsite">
+					<div class="form">
+						<div class="ma">
+							Full Name<br>
+							<input type="text" class="fm">
+
+						</div>
+
+						<div class="ma">
+							Email Address<br>
+							<input type="text" class="fm">
+
+						</div>
+
+						<div class="ma">
+							Password<br>
+							<input type="password" class="fm">
+
+						</div>
+
+						<div class="ma c">
+							Submit
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+<!-- code here does not work?
+<div class="plyrpage">
+	<div class="mc">
+		<div class="main">
+	<div class="close">
+		<i class="fa fa-times" aria-hidden="true"></i>
+	</div>
+	<div class="container">
+			<div id="player"></div>
+		</div>
+	</div>
+	</div>
+</div>
+-->
+
+	<div class="website">
+		<div class="topbar">
+			<div class="search">
+				<input type="" name="" class="srch" placeholder="Search">
+				<div class="sea">
+					<div class="arr">
+						<i class="fa fa-angle-right" aria-hidden="true"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="feat">
+			<div class="move1">
+				<div class="heading">Featured</div>
+				<div class="align">
+				  <a href="vids/45jzZCMdXaE.html"><div class="featu f1 hover-image"><p class="caption">Khan Academy LearnStorm 2018 Overview Video</p></div></a>
+					<a href="vids/B3u4EFTwprM.html"><div class="featu f2 hover-image"><p class="caption">Capitalism and Socialism: Crash Course World History #33</p></div></a>
+					<a href="vids/nl2mQ2HiJZc.html"><div class="featu f3 hover-image"><p class="caption">Your Private Messages Might Travel Under This Beach</p></div></a>
+				  <a href="vids/9NYleo0r4Eg.html"><div class="featu f4 hover-image"><p class="caption">Signed and Unsigned Integers - Integer Overflows - Pwn Adventure 3</p></div></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		$(".bu").click(function() {
+			$(".loginpage").css({
+				"top": "0"
+			})
+		})
+
+		$(".close").click(function() {
+			$(".loginpage").css({
+				"top": "100%"
+			})
+		})
+
+		$(".c").click(function() {
+			$(".website").css({
+				"top": "0%"
+			})
+
+		})
+
+/* code here does not work?
+		$(".hover-image").click(function() {
+			document.getElementById("player").setAttribute("data-plyr-provider", "youtube");
+			document.getElementById("player").setAttribute("data-plyr-embed-id", "nl2mQ2HiJZc");
+			//$("#player").attr("data-plyr-provider", "youtube");
+			//$("#player").attr("data-plyr-embed-id", "nl2mQ2HiJZc");
+			$(".plyrpage").css({
+				"top": "0"
+			})
+		})
+		*/
+
+		$('.move1').on('mousewheel', function(updown) {
+			if (updown.originalEvent.wheelDelta / 120 > 0) {
+				/*$(".website").css({"top":"100%"})*/
+			} else {
+				$(".feat").css({
+					"top": "-90%"
+				})
+
+			}
+		})
+
+		$('.move2').on('mousewheel', function(updown) {
+			if (updown.originalEvent.wheelDelta / 120 > 0) {
+				$(".feat").css({
+					"top": "10%"
+				})
+
+			} else {
+
+			}
+		})
+
+    dubbed = new Audio("translated.mp3");
+
+
+			// This is the bare minimum JavaScript. You can opt to pass no arguments to setup.
+			const player = new Plyr(document.getElementById('player'), {muted: true});
+
+			// Bind event listener
+			// function on(selector, type, callback) {
+			// 	document.querySelector(selector).addEventListener(type, callback, false);
+			// }
+
+			// Play
+			player.on('playing', (event) => {
+				dubbed.play();
+			});
+
+			// Pause
+			player.on('pause', (event) => {
+				player.pause();
+				dubbed.pause();
+			});
+
+			// Stop
+			player.on('stop', (event) => {
+				player.stop();
+				dubbed.pause();
+			});
+
+			// Rewind
+			player.on('rewind', (event) => {
+				player.rewind();
+			});
+
+			// Forward
+			player.on('forward', (event) => {
+				player.forward();
+			});
+
+			player.on('seeked', (event) => {
+				dubbed.pause()
+				dubbed.currentTime = player.currentTime;
+				dubbed.play()
+			})
+
+	</script>
+
+</body>
+
+</html>

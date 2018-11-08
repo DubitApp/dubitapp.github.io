@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="animate.css">
+  <link rel="stylesheet" type="text/css" href="../index.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.plyr.io/3.2.4/plyr.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.plyr.io/3.2.4/plyr.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="topbar">
+    <p class="header">Signed and Unsigned Integers - Integer Overflows - Pwn Adventure 3</p>
+  </div>
+
+  <div class="container">
+    <div id="player" data-plyr-provider="youtube" data-plyr-embed-id="9NYleo0r4Eg"></div>
+  </div>
+
+  <script type="text/javascript">
+    dubbed = new Audio("../9NYleo0r4Eg.mp3");
+
+
+    // This is the bare minimum JavaScript. You can opt to pass no arguments to setup.
+    const player = new Plyr(document.getElementById('player'), {
+      muted: true
+    });
+
+    // Bind event listener
+    // function on(selector, type, callback) {
+    // 	document.querySelector(selector).addEventListener(type, callback, false);
+    // }
+
+    // Play
+    player.on('playing', (event) => {
+      dubbed.play();
+    });
+
+    // Pause
+    player.on('pause', (event) => {
+      player.pause();
+      dubbed.pause();
+    });
+
+    // Stop
+    player.on('stop', (event) => {
+      player.stop();
+      dubbed.pause();
+    });
+
+    // Rewind
+    player.on('rewind', (event) => {
+      player.rewind();
+    });
+
+    // Forward
+    player.on('forward', (event) => {
+      player.forward();
+    });
+
+    player.on('seeked', (event) => {
+      dubbed.pause()
+      dubbed.currentTime = player.currentTime;
+      dubbed.play()
+    })
+  </script>
+
+</body>
+
+</html>
