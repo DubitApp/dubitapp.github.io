@@ -137,27 +137,15 @@
 		})
 		*/
 
-		$('.move1').on('mousewheel', function(updown) {
-			if (updown.originalEvent.wheelDelta / 120 > 0) {
-				/*$(".website").css({"top":"100%"})*/
-			} else {
-				$(".feat").css({
-					"top": "-90%"
-				})
+		$(window).on('wheel', function(e) {
 
-			}
-		})
+			var delta = e.originalEvent.deltaY;
 
-		$('.move2').on('mousewheel', function(updown) {
-			if (updown.originalEvent.wheelDelta / 120 > 0) {
-				$(".feat").css({
-					"top": "10%"
-				})
+			if (delta > 0) $('.feat').css({"top": "-90%"});
+			else $('.feat').css({"top": "10%"});
 
-			} else {
-
-			}
-		})
+			return false; // this line is only added so the whole page won't scroll in the demo
+			});
 
     dubbed = new Audio("translated.mp3");
 
