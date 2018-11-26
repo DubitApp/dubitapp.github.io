@@ -65,7 +65,7 @@
 		</div>
 	</div>
 
-<!-- code here does not work?
+<!-- plyr is a [b]
 <div class="plyrpage">
 	<div class="mc">
 		<div class="main">
@@ -73,8 +73,8 @@
 		<i class="fa fa-times" aria-hidden="true"></i>
 	</div>
 	<div class="container">
-			<div id="player"></div>
-		</div>
+    <div id="player" data-plyr-provider="youtube" data-plyr-embed-id="9NYleo0r4Eg"></div>
+  </div>
 	</div>
 	</div>
 </div>
@@ -125,10 +125,12 @@
 
 		})
 
-/* code here does not work?
+
+		/* plyr is a [b]
 		$(".hover-image").click(function() {
-			document.getElementById("player").setAttribute("data-plyr-provider", "youtube");
-			document.getElementById("player").setAttribute("data-plyr-embed-id", "nl2mQ2HiJZc");
+			document.getElementsByTagName("iframe")[0].setAttribute("src", "https://www.youtube.com/watch?v=0lSTXtwPuOU");
+			//document.getElementById("player").setAttribute("data-plyr-provider", "youtube");
+		  //document.getElementById("player").setAttribute("data-plyr-embed-id", "nl2mQ2HiJZc");
 			//$("#player").attr("data-plyr-provider", "youtube");
 			//$("#player").attr("data-plyr-embed-id", "nl2mQ2HiJZc");
 			$(".plyrpage").css({
@@ -147,7 +149,7 @@
 			return false; // this line is only added so the whole page won't scroll in the demo
 			});
 
-    dubbed = new Audio("translated.mp3");
+    //dubbed = new Audio("audio/liveoverflow/9NYleo0r4Eg.mp3");
 
 
 			// This is the bare minimum JavaScript. You can opt to pass no arguments to setup.
